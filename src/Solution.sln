@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBroker.Example.Subsc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBroker.Example.Publisher", "MessageBroker.Example.Publisher\MessageBroker.Example.Publisher.csproj", "{38C77535-E886-4036-9752-0A4DE85B4DDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redis.Sentinel", "Redis.Sentinel\Redis.Sentinel.csproj", "{3E745541-3F8A-4961-B76D-F48B602CD332}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{38C77535-E886-4036-9752-0A4DE85B4DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38C77535-E886-4036-9752-0A4DE85B4DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38C77535-E886-4036-9752-0A4DE85B4DDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E745541-3F8A-4961-B76D-F48B602CD332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E745541-3F8A-4961-B76D-F48B602CD332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E745541-3F8A-4961-B76D-F48B602CD332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E745541-3F8A-4961-B76D-F48B602CD332}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

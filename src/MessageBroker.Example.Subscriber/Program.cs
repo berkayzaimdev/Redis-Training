@@ -3,7 +3,7 @@
 ConnectionMultiplexer redis = await ConnectionMultiplexer.ConnectAsync("localhost:1453");
 ISubscriber subscriber = redis.GetSubscriber();
 
-subscriber.SubscribeAsync("stock.*", (channel, value) =>  
+subscriber.SubscribeAsync("mychannel", (channel, value) =>  
 {
     Console.WriteLine(value);
 });
