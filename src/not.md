@@ -2,97 +2,106 @@
 ---
 ## Caching nedir?
 
-Yazılım süreçlerinde verilere daha hızlı erişebilmek adına bu verilerin bellekte tutulmasıdır.
+YazÄ±lÄ±m sÃ¼reÃ§lerinde verilere daha hÄ±zlÄ± eriÅŸebilmek adÄ±na bu verilerin bellekte tutulmasÄ±dÄ±r.
 
-### Caching'in Sağladığı Faydalar
+### Caching'in SaÄŸladÄ±ÄŸÄ± Faydalar
 
-- Caching, verilere hızlı erişimi sağlar
-- Bu hızlı erişim dolayısıyla performansı önemli ölçüde artırır. Veritabanı sorguları gibi maliyetli işlemlerde, verilerin önceden cache'e alınıp bu cache'ten getirilmesi büyük bir performans farkı yaratır.
-- Caching, verileri önceden cache'e sakladığı için ihtiyaç dahilinde aynı verilerin tekrarlı şekilde elde edilme maliyetlerini sunucudan soyutlar ve böylece sunucunun iş yükünü azaltır.
-- Özellikle çevrimiçi uygulamalarda caching yöntemi, hızlı erişimi mümkün kılar.
+- Caching, verilere hÄ±zlÄ± eriÅŸimi saÄŸlar
+- Bu hÄ±zlÄ± eriÅŸim dolayÄ±sÄ±yla performansÄ± Ã¶nemli Ã¶lÃ§Ã¼de artÄ±rÄ±r. VeritabanÄ± sorgularÄ± gibi maliyetli iÅŸlemlerde, verilerin Ã¶nceden cache'e alÄ±nÄ±p bu cache'ten getirilmesi bÃ¼yÃ¼k bir performans farkÄ± yaratÄ±r.
+- Caching, verileri Ã¶nceden cache'e sakladÄ±ÄŸÄ± iÃ§in ihtiyaÃ§ dahilinde aynÄ± verilerin tekrarlÄ± ÅŸekilde elde edilme maliyetlerini sunucudan soyutlar ve bÃ¶ylece sunucunun iÅŸ yÃ¼kÃ¼nÃ¼ azaltÄ±r.
+- Ã–zellikle Ã§evrimiÃ§i uygulamalarda caching yÃ¶ntemi, hÄ±zlÄ± eriÅŸimi mÃ¼mkÃ¼n kÄ±lar.
 
-### Caching'in Zararları
+### Caching'in ZararlarÄ±
 
-- Veriler bellekte saklandığı için bellek yükü artar. Bu da performans sorunlarına yol açabilir.
-- Yasa dışı kullanım açısından kritik olan verilerin cache'lenmesi, hukuki problemlere sebebiyet verebilir.
+- Veriler bellekte saklandÄ±ÄŸÄ± iÃ§in bellek yÃ¼kÃ¼ artar. Bu da performans sorunlarÄ±na yol aÃ§abilir.
+- Yasa dÄ±ÅŸÄ± kullanÄ±m aÃ§Ä±sÄ±ndan kritik olan verilerin cache'lenmesi, hukuki problemlere sebebiyet verebilir.
 
 ### Ne Tarz Veriler Cache'lenir?
 
-- Çoğu veri cache'lenebilir ve verinin hacmi önem taşır.
-- Cache'lenecek veriler özenle seçilmelidir.
-- Cache'lenecek veriler sıklıkla ve hızlı bir şekilde erişilecek veriler olmalıdır. Örn: sıkça ve sürekli kullanılan db sorguları neticesindeki veriler, konfigürasyon verileri, menü bilgileri, yetkiler vs. gibi sürekli ihtiyaç duyulacak verilere birincil öncelik tanınmalıdır.
-- Resim ve videolar gibi statik bileşenler
+- Ã‡oÄŸu veri cache'lenebilir ve verinin hacmi Ã¶nem taÅŸÄ±r.
+- Cache'lenecek veriler Ã¶zenle seÃ§ilmelidir.
+- Cache'lenecek veriler sÄ±klÄ±kla ve hÄ±zlÄ± bir ÅŸekilde eriÅŸilecek veriler olmalÄ±dÄ±r. Ã–rn: sÄ±kÃ§a ve sÃ¼rekli kullanÄ±lan db sorgularÄ± neticesindeki veriler, konfigÃ¼rasyon verileri, menÃ¼ bilgileri, yetkiler vs. gibi sÃ¼rekli ihtiyaÃ§ duyulacak verilere birincil Ã¶ncelik tanÄ±nmalÄ±dÄ±r.
+- Resim ve videolar gibi statik bileÅŸenler
 
 ### Ne Tarz Veriler Cache'lenemez?
 
-- Sürekli güncellenen veya kişisel veriler cache'lenmemelidir. Aksi takdirde yanlış veya eksik veri getirme durumları ortaya çıkarabilir. Geçici veriler için de aynı durum geçerlidir.
-- Güvenlik açısından risk teşkil eden veriler de mümkün mertebe cache'lenmemelidir!
+- SÃ¼rekli gÃ¼ncellenen veya kiÅŸisel veriler cache'lenmemelidir. Aksi takdirde yanlÄ±ÅŸ veya eksik veri getirme durumlarÄ± ortaya Ã§Ä±karabilir. GeÃ§ici veriler iÃ§in de aynÄ± durum geÃ§erlidir.
+- GÃ¼venlik aÃ§Ä±sÄ±ndan risk teÅŸkil eden veriler de mÃ¼mkÃ¼n mertebe cache'lenmemelidir!
 
-### Cache Mekanizmasının Ana Bileşenleri
+### Cache MekanizmasÄ±nÄ±n Ana BileÅŸenleri
 
-- Cache Belleği: Verilerin saklandığı bellek.
-- Cache Bellek Yönetimi: Saklanan verilerin yönetildiği alan. Saklanma süresi, silinme sıklığı, güncellik durumları vb.
-- Cache Algoritması: Verilerin belleğe nasıl eklenip silineceğini belirleyen algoritmadır.
+- Cache BelleÄŸi: Verilerin saklandÄ±ÄŸÄ± bellek.
+- Cache Bellek YÃ¶netimi: Saklanan verilerin yÃ¶netildiÄŸi alan. Saklanma sÃ¼resi, silinme sÄ±klÄ±ÄŸÄ±, gÃ¼ncellik durumlarÄ± vb.
+- Cache AlgoritmasÄ±: Verilerin belleÄŸe nasÄ±l eklenip silineceÄŸini belirleyen algoritmadÄ±r.
 ---
-## Caching Türleri
+## Caching TÃ¼rleri
 
 ### In-Memory Caching
 
-- Verilerin uygulamanın çalıştığı bilgisayarın RAM'inde tutulduğu yaklaşımdır.
+- Verilerin uygulamanÄ±n Ã§alÄ±ÅŸtÄ±ÄŸÄ± bilgisayarÄ±n RAM'inde tutulduÄŸu yaklaÅŸÄ±mdÄ±r.
 
 ### Distributed Caching
 
-- Verilerin ayrı bir mekanizmada(sanal, fiziksel vb.) cache'lenmesidir.
-- Veriler farklı noktalarda tutularak güvenlik düzeyi artırılır.
-- Büyük veri setleri için çok uygundur.
-- Redis, Memcached, Hazelcast, Apache Ignite, EHCache gibi yazılımlar tarafından sağlanabilir.
+- Verilerin ayrÄ± bir mekanizmada(sanal, fiziksel vb.) cache'lenmesidir.
+- Veriler farklÄ± noktalarda tutularak gÃ¼venlik dÃ¼zeyi artÄ±rÄ±lÄ±r.
+- BÃ¼yÃ¼k veri setleri iÃ§in Ã§ok uygundur.
+- Redis, Memcached, Hazelcast, Apache Ignite, EHCache gibi yazÄ±lÄ±mlar tarafÄ±ndan saÄŸlanabilir.
 ---
-## Redis Veri Türleri
-- **String:** Metinsel değerlerle birlikte her tür veriyi saklamakta kullanılır. Hatta binary olarak resim, dosya vb. de saklanabilir
-- İşlevleri;
+## Redis Veri TÃ¼rleri
+- **String:** Metinsel deÄŸerlerle birlikte her tÃ¼r veriyi saklamakta kullanÄ±lÄ±r. Hatta binary olarak resim, dosya vb. de saklanabilir
   - SET | Ekleme | SET NAME berkay
   - GET | Okuma | GET NAME -> "berkay"
-  - GETRANGE | Karakter aralığı okuma | GETRANGE NAME 1 2 -> "er"
-  - INCR/INCRBY | Artırma | INCR SAYI
+  - GETRANGE | Karakter aralÄ±ÄŸÄ± okuma | GETRANGE NAME 1 2 -> "er"
+  - INCR/INCRBY | ArtÄ±rma | INCR SAYI
   - DECR/DECRBY | Azaltma | DECR SAYI
-  - APPEND | Üzerine ekleme | APPEND NAME  zaim
+  - APPEND | Ãœzerine ekleme | APPEND NAME  zaim
 	</br></br></br>
 	
-- **List:** Değerleri koleksiyonel olarak saklama
-- İşlevleri;
-  - LPUSH | Başa Veri Ekleme | LPUSH NAMES ahmet mehmet -> (integer) 2
+- **List:** DeÄŸerleri koleksiyonel olarak saklama
+  - LPUSH | BaÅŸa Veri Ekleme | LPUSH NAMES ahmet mehmet -> (integer) 2
   - LRANGE | Verileri Listeleme | LRANGE NAMES 0-1 -> 1) "ahmet" 2) "mehmet"
-  - RPUSH | Başa Veri Ekleme | RPUSH NAMES mustafa -> (integer) 3
-  - LPOP | Soldan(baştan) Eleman Çıkarma | LPOP NAMES -> "ahmet" (çıkarılan eleman)
-  - RPOP| Sağdan(sondan) Eleman Çıkarma | RPOP NAMES -> "mustafa" (çıkarılan eleman)
-  - LINDEX | Indexe göre datayı getirme | LINDEX NAMES 0 -> "mehmet"
+  - RPUSH | BaÅŸa Veri Ekleme | RPUSH NAMES mustafa -> (integer) 3
+  - LPOP | Soldan(baÅŸtan) Eleman Ã‡Ä±karma | LPOP NAMES -> "ahmet" (Ã§Ä±karÄ±lan eleman)
+  - RPOP| SaÄŸdan(sondan) Eleman Ã‡Ä±karma | RPOP NAMES -> "mustafa" (Ã§Ä±karÄ±lan eleman)
+  - LINDEX | Indexe gÃ¶re datayÄ± getirme | LINDEX NAMES 0 -> "mehmet"
 	</br></br></br>
 	
-- **Set:** unique şekilde veri saklama
-- İşlevleri;
+- **Set:** unique ÅŸekilde veri saklama
   - SADD | Ekleme | SADD COLOR red green blue pink -> (integer) 4
   - SREM | Silme | SREM COLOR green -> (integer) 1
   - SISMEMBER | Arama | SISMEMBER COLOR blue -> (integer) 1
-  - SINTER | İki Set'teki Kesişimi Getirir | SINTER MAMMALS AQUATICS -> 1) "whale" 2) "dolphin"
-  - SCARD | Eleman Sayısını Getirir | SCARD COLOR -> (integer) 3
+  - SINTER | Ä±ki Set'teki KesiÅŸimi Getirir | SINTER MAMMALS AQUATICS -> 1) "whale" 2) "dolphin"
+  - SCARD | Eleman SayÄ±sÄ±nÄ± Getirir | SCARD COLOR -> (integer) 3
 	</br></br></br>
 
-- **Sorted Set:** sıralanmış set. Her veriye score adı verilen bir değer atanır. Veriler bu değer kullanılarak sıralanıp saklanır
-- İşlevleri;
+- **Sorted Set:** sÄ±ralanmÄ±ÅŸ set. Her veriye score adÄ± verilen bir deÄŸer atanÄ±r. Veriler bu deÄŸer kullanÄ±larak sÄ±ralanÄ±p saklanÄ±r
   - ZADD | Ekleme | ZADD TEAMS 1 A -> (integer) 1
   - ZRANGE | Getirme | ZRANGE TEAMS 0-1 WITHSCORES -> 1) "A" 2) "1" 3) "B" 4) "2" 5) "C" 6) "3" 
   - ZREM | Silme | ZREM TEAMS A -> (integer) 1
-  - ZREVRANK | İki Set'teki Kesişimi Getirir | ZREVRANK TEAMS B -> (integer) 2
+  - ZREVRANK | Ä±ki Set'teki KesiÅŸimi Getirir | ZREVRANK TEAMS B -> (integer) 2
 	</br></br></br>
 
-- **Hash:** key-value formatında veri tutan tür
+- **Hash:** key-value formatÄ±nda veri tutan tÃ¼r
   - HMSET/HSET | Ekleme | HMSET EMPLOYEES username berkay -> OK
   - HMGET/HGET | Getirme | HMGET EMPLOYEES username -> 1) "berkay"
   - HDEL | Silme | HDEL EMPLOYEES username -> 1
-  - HGETALL | Tümünü Getirme | HGETALL EMPLOYEES -> username berkay age 23 (satır satır key-value getirir)
+  - HGETALL | TÃ¼mÃ¼nÃ¼ Getirme | HGETALL EMPLOYEES -> username berkay age 23 (satÄ±r satÄ±r key-value getirir)
 	</br></br></br>
 	
-- **Streams:** Log gibi hareket eden bir veri türüdür. Streams, event'ların oluşturuldukları sırayla kaydedilmelerini ve daha sonra işletilmelerini sağlar
+- **Streams:** Log gibi hareket eden bir veri tÃ¼rÃ¼dÃ¼r. Streams, event'larÄ±n oluÅŸturulduklarÄ± sÄ±rayla kaydedilmelerini ve daha sonra iÅŸletilmelerini saÄŸlar
 
-- **Geospatial Indexes:** Coğrafi koordinatların saklanmasını sağlayan veri türüdür
+- **Geospatial Indexes:** CoÄŸrafi koordinatlarÄ±n saklanmasÄ±nÄ± saÄŸlayan veri tÃ¼rÃ¼dÃ¼r
+---
+## Redis Pub/Sub Ã–zelliÄŸi
 
+### Redis CLI
+
+1. Powershell'den iki pencere aÃ§Ä±lÄ±r.
+1. Ä°ki pencerede de Redis CLI'a baÄŸlanÄ±lÄ±r. ``` (docker exec -il 8c60 redis-cli -raw) ``` Bu pencerelerden biri Publisher, diÄŸeri Consumer iÅŸlevi gÃ¶recektir. 
+1. Ã–ncelikle Consumer gÃ¶revi verilecek olanda ```subscribe ...channel``` talimatÄ±nÄ± vererek gelecek olan mesajlara abone oluruz.
+1. Daha sonra Publisher gÃ¶revi verilecek olanda ```publish ...channel message``` talimatÄ±nÄ± vererek ilgili kanala mesaj gÃ¶ndeririz.
+
+### Redis Insight
+
+1. Redis Insight'te sol menÃ¼deki Pub/Sub sekmesi aÃ§Ä±lÄ±r.
+1. Buradan tÃ¼m kanallardaki mesaj akÄ±ÅŸÄ±nÄ± takip edebilir ve yÃ¶netebiliriz.
